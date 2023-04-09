@@ -5,21 +5,21 @@ def read_input():
     # this function needs to aquire input both from keyboard and file
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     
-    input_k = input()
+    input_type = input()
 
-    while 'I' not in input_k or 'F' not in input_k:
+    while 'I' not in input_type or 'F' not in input_type:
 
-        if 'I' in input_k:
+        if 'I' in input_type:
 
             return (input().rstrip(), input().rstrip())
 
-        elif 'F' in input_k:
+        elif 'F' in input_type:
 
             with open("./tests/06", "r") as file:
 
                 return (file.readline().rstrip(), file.readline().rstrip())
         
-        input_k = input()
+        input_type = input()
     
     # after input type choice
     # read two lines 
