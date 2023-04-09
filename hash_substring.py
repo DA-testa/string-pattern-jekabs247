@@ -15,7 +15,7 @@ def read_input():
 
         elif 'F' in input_k:
 
-            with open("tests/06") as file:
+            with open("./tests/06", "r") as file:
 
                 return (file.readline().rstrip(), file.readline().rstrip())
         
@@ -38,7 +38,7 @@ def get_occurrences(pattern, text):
 
     # this function should find the occurances using Rabin Karp alghoritm 
 
-    output = []
+    outp = []
     text_len = len(text)
     pattern_len = len(pattern)
 
