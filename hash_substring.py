@@ -41,7 +41,7 @@ def get_occurrences(pattern, text):
     txt_len = len(text)
     pt_len = len(pattern)
     pt_hs = hash(pattern)
-    txt_hs = hash(text[:pt_len])
+    txt_hs = [hash(text[:pt_len])]
     txt_hs_len = len(txt_hs)
 
     if txt_len < pt_len:
