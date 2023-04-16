@@ -8,19 +8,17 @@ def read_input():
     
     input_type = input()
 
-    while 'I' not in input_type or 'F' not in input_type:
+    if 'I' in input_type:
 
-        if 'I' in input_type:
+        return (input().rstrip(), input().rstrip())
 
-            return (input().rstrip(), input().rstrip())
+    elif 'F' in input_type:
 
-        elif 'F' in input_type:
+        with open("tests/06") as file:
 
-            with open("./tests/06", "r") as file:
-
-                return (file.readline().rstrip(), file.readline().rstrip())
+            return (file.readline().rstrip(), file.readline().rstrip())
         
-        input_type = input()
+
     
     # after input type choice
     # read two lines 
@@ -40,22 +38,22 @@ def get_occurrences(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
 
     output = []
-    text_len = len(text)
-    pattern_len = len(pattern)
+    txt_len = len(text)
+    pt_len = len(pattern)
+    pt_hs = hash(pattern)
+    txt_hs = hash(text[:pt_len])
+    txt_hs_len = len(txt_hs)
 
-    output = []
-
-    for i in range(text_len - pattern_len + 1):
-
-        if (pattern == text[i:i+p]):
+    if txt_len < pt_len:
+        return output
+    
+    for i in range (txt_hs_len):
+         
+         if pt_hs == txt_hs[i] and text[i:i+pt_len] == pattern:
 
             output.append(i)
 
-    # and return an iterable variable
     return output
-
-
-
 
 # this part launches the functions
 if __name__ == '__main__':
